@@ -7,7 +7,7 @@ Ansible playbook for valheim dedicated server on CentOS 7
 ## Prerequisites
 
 - The playbook addresses the host group valheim, so have your hosts in the inventory present
-- Firewalld is not used, instead I used ufw as a simplified firewall for this project. This is NOT included in the roles.
+- Firewalld is not used, instead I used ufw as a simplified firewall for this project. The setup of UFW is NOT included in the roles, it only adds the required ports.
 - Required host parameters:
 ```
 valheim_server_name: name of the server
