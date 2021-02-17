@@ -2,5 +2,5 @@
   hosts: valheim
   gather_facts: false
   roles:
-#    - role: steam
+    - role: steam
     - role: valheim
