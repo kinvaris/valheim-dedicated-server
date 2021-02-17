@@ -1,0 +1,44 @@
+---
+- name: Stop valheim server - if present
+  systemd:
+    state: stopped
+    name: valheimserver
+  become: true
+  ignore_errors: true
+
+- name: Install or update valheim
+  shell: "/bin/bash /home/steam/steamcmd.sh +login anonymous +force_install_dir /home/steam/valheimserver +app_update 896660 validate +exit"
+  become_user: steam
+  become: true
+
+- name: Setup start script for valheim
+  template:
+    src: files/home/steam/valheimserver/start_valheim.sh
+    dest: /home/steam/valheimserver/start_valheim.sh
+    owner: steam
+    group: steam
+    mode: 0770
+  become_user: steam
+  become: true
+
+- name: Setup systemd for valheim
+  template:
+    src: files/etc/systemd/system/valheimserver.service
+    dest: /etc/systemd/system/valheimserver.service
+  become: true
+
+- name: Start and enable valheim server
+  systemd:
+    state: started
+    daemon_reload: yes
+    name: valheimserver
+    enabled: yes
+  become: true
+
+- name: Allow valheim on local fw
+  ufw:
+    rule: allow
+    port: 2456:2458
+    proto: udp
+  become: true
+

@@ -1,0 +1,11 @@
+---
+- name: Add user 'steam'
+  user:
+    name: steam
+    state: present
+    shell: /bin/bash
+    createhome: yes
+  become: true
+  tags:
+    - steam
+

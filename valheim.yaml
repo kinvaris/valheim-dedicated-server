@@ -1,0 +1,6 @@
+- name: Install or Update Valheim
+  hosts: valheim
+  gather_facts: false
+  roles:
+#    - role: steam
+    - role: valheim

@@ -1,0 +1,3 @@
+- include_tasks: install_packages.yaml
+- include_tasks: users.yaml
+- include_tasks: configure_steam.yaml

@@ -1,0 +1,22 @@
+---
+- name: Download steam
+  get_url:
+    url: https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz
+    dest: /home/steam/steamcmd_linux.tar.gz
+    mode: 0440
+  become_user: steam
+  become: true
+
+- name: Unpack steam
+  unarchive:
+    src: /home/steam/steamcmd_linux.tar.gz
+    dest: /home/steam/
+    remote_src: yes
+  become_user: steam
+  become: true
+
+- name: Install or update steam lib
+  shell: "/bin/bash /home/steam/steamcmd.sh +exit"
+  become_user: steam
+  become: true
+
