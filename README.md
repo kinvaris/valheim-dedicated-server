@@ -1,4 +1,4 @@
-# valheim-dedicated-server
+# Valheim dedicated server on CentOS 7
 
 ## Description
 
