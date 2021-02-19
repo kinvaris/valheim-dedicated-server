@@ -1,4 +1,4 @@
-# Valheim dedicated server on CentOS 7
+# Valheim dedicated server on CentOS 7 via Ansible
 
 ## Description
 
